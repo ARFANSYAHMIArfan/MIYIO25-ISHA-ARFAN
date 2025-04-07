@@ -1,2 +1,8 @@
 git clone https://github.com/example/miyio-fridge.git
 cd main
+
+pip3 install -r requirements.txt
+python3 backend.py
+
+
+Access dari telefon: Buka browser & pergi ke http://<IP-raspberry-pi>:5000
