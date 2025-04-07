@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Miyio Fridge</title>
+  <style>
+    body { font-family: sans-serif; background: #111; color: #fff; text-align: center; margin: 0; padding: 2rem; }
+    .card { background: #222; margin: 2rem auto; padding: 2rem; border-radius: 12px; width: 300px; box-shadow: 0 0 10px #333; }
+    h1 { font-size: 2rem; }
+  </style>
+</head>
+<body>
+  <h1>Peti Ais Pintar Miyio</h1>
+  <div class="card">
+    <h2>Suhu: <span id="temp">...</span> °C</h2>
+    <h2>Kelembapan: <span id="humid">...</span> %</h2>
+  </div>
+  <script>
+    async function getData() {
+      try {
+        const res = await fetch('/data');
+        const data = await res.json();
+        document.getElementById('temp').textContent = data.temperature;
+        document.getElementById('humid').textContent = data.humidity;
+      } catch (err) {
+        document.getElementById('temp').textContent = 'Err';
+        document.getElementById('humid').textContent = 'Err';
+      }
+    }
+    setInterval(getData, 2000);
+    getData();
+  </script>
+</body>
+</html>
