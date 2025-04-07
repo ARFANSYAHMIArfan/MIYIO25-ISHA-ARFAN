@@ -1,0 +1,5 @@
+miyio-fridge/
+├── backend.py
+├── requirements.txt
+└── templates/
+    └── index.html
